@@ -20,3 +20,12 @@
 @media(max-width:440px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
 
 .edit-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.edit-actions button{border:1px solid #9db5a7;border-radius:8px;background:#edf3ef;color:#153c33;padding:10px 14px;min-height:44px;font-weight:650}.edit-actions button.save{background:#153c33;color:white;border-color:#153c33}.ingredient-fields{display:grid;gap:14px;margin-top:18px}.ingredient-fields label{font-size:14px;font-weight:650;display:grid;gap:5px}.ingredient-fields input{width:100%;min-width:0;padding:12px;border:1px solid #a9bbb0;border-radius:8px;font:inherit;font-size:16px;color:#172d27;background:white}.ingredient-fields input:focus{outline:2px solid #153c33;outline-offset:2px}.save-error{color:#a62a20;font-size:14px}.component{min-width:0}
+
+/* Ingredient and packaging rows */
+.recipe-row{display:grid;grid-template-columns:minmax(0,1fr) 72px 58px 40px;align-items:center;gap:9px;padding:14px 0;border-bottom:1px solid #e3eae5;font-size:15px}
+.recipe-row.heading{font-size:12px;color:#60726b;font-weight:750;text-transform:uppercase;letter-spacing:.3px;padding-top:0}
+.row-name{font-weight:650;overflow-wrap:anywhere}.row-name small{display:block;font-size:12px;font-weight:400;color:#60726b;margin-top:3px}.row-name small.unmatched{color:#925725}.row-quantity{font-variant-numeric:tabular-nums}
+.pencil{display:grid;place-items:center;width:40px;height:40px;background:#e8f0eb;color:#153c33;border:1px solid #a3bcac;border-radius:8px;padding:0}.pencil:hover{background:#153c33;color:white}
+.add-row{width:100%;padding:12px;margin-top:16px;background:#153c33;border:1px solid #153c33;color:white;font-weight:700;border-radius:8px;min-height:44px}
+.row-editor{padding:16px;margin:10px 0;border:2px solid #a7bfaf;border-radius:10px;background:#f1f6f2}.row-editor label{display:grid;gap:6px;font-size:14px;font-weight:650}.row-editor input,.row-editor select{font:inherit;font-size:16px;width:100%;min-width:0;min-height:44px;border:1px solid #9cb4a5;border-radius:7px;padding:10px;background:white;color:#172d27}.row-editor input:focus,.row-editor select:focus{outline:2px solid #153c33;outline-offset:2px}.row-amounts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.fill-standard{padding:10px 12px;border-radius:8px;background:#edf4ef;color:#153c33;font-size:14px;margin:16px 0 0}.procedure-note{margin:0 0 24px}
+@media(max-width:440px){.recipe-row{grid-template-columns:minmax(0,1fr) 62px 46px 40px;gap:6px;font-size:14px}.recipe-row.heading{font-size:12px}}
