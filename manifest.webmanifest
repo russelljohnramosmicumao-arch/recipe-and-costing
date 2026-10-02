@@ -1,0 +1,10 @@
+{
+  "name": "Kape' Bar-Rio Costing",
+  "short_name": "KBR Costing",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f1eb",
+  "theme_color": "#5f3d2e",
+  "orientation": "landscape",
+  "icons": []
+}
