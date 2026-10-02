@@ -716,7 +716,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         1
-      ]
+      ],
+      "image": "images/green-apple.jpg",
+      "instructions": {
+        "12": "1. Lagay ng 1 ½ PUMPS ng syrup sa baso. 2. Lagyan ng ice ang baso. Around ¾ ng buong baso. 3. Lagyan ng Sprite ang baso. Wag masyadong punuin para sa toppings. 4. Lagyan ng Rainbow jelly na topping. Isang kutsara. 5. Lagyan ng parchment paper sa taas ng baso then close.",
+        "16": "1. Lagay ng 2½ PUMPS ng syrup sa baso. 2. Lagyan ng ice ang baso. Around ¾ ng buong baso. 3. Lagyan ng Sprite ang baso. Wag masyadong punuin para sa toppings. 4. Lagyan ng Rainbow jelly na topping. Isang kutsara. 5. Lagyan ng parchment paper sa taas ng baso then close.",
+        "22": "1. Lagay ng 4 PUMPS ng syrup sa baso. 2. Lagyan ng ice ang baso. Around ¾ ng buong baso. 3. Lagyan ng Sprite ang baso. Wag masyadong punuin para sa toppings. 4. Lagyan ng Rainbow jelly na topping. Isang kutsara. 5. Lagyan ng parchment paper sa taas ng baso then close."
+      }
     },
     {
       "id": "recipe-2",
@@ -907,7 +913,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         2
-      ]
+      ],
+      "image": "images/coke-float.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng Coke ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.",
+        "16": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng Coke ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.",
+        "22": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng Coke ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup."
+      }
     },
     {
       "id": "recipe-3",
@@ -1119,7 +1131,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         3
-      ]
+      ],
+      "image": "images/chuckie-float.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml na Chuckie ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.",
+        "16": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 180ml na Chuckie ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.",
+        "22": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml at 180ml na Chuckie ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup."
+      }
     },
     {
       "id": "recipe-4",
@@ -1331,7 +1349,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         4
-      ]
+      ],
+      "image": "images/dutchmill-float.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml na Dutchmill ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng strawberry syrup.",
+        "16": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 180ml na Dutchmill ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng strawberry syrup.",
+        "22": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml at 180ml na Dutchmill ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng strawberry syrup."
+      }
     },
     {
       "id": "recipe-5",
@@ -1564,7 +1588,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         5
-      ]
+      ],
+      "image": "images/taro-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of taro powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro syrup na pang walling. 9. Cover with parchment paper and close.",
+        "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of taro powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro syrup na pang walling. 9. Cover with parchment paper and close.",
+        "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of taro powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro syrup na pang walling. 9. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-6",
@@ -1797,7 +1827,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         6
-      ]
+      ],
+      "image": "images/okinawa-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of okinawa powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add okinawa syrup na pang walling. 9. Cover with parchment paper and close.",
+        "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of okinawa powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro okinawa na pang walling. 9. Cover with parchment paper and close.",
+        "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of okinawa powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro okinawa na pang walling. 9. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-7",
@@ -2030,7 +2066,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         7
-      ]
+      ],
+      "image": "images/cookies-and-cream.jpg",
+      "instructions": {
+        "12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of Cookies and Cream powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang walling. 9. Cover with parchment paper and close.",
+        "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of Cookies and Cream powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang walling. 9. Cover with parchment paper and close.",
+        "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of Cookies and Cream powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang walling. 9. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-8",
@@ -2263,7 +2305,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         8
-      ]
+      ],
+      "image": "images/black-forest-choco.jpg",
+      "instructions": {
+        "12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of Blackforest Choco powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang",
+        "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of Blackforest Choco powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang",
+        "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2 1⁄2 tablespoons of Blackforest Choco powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang"
+      }
     },
     {
       "id": "recipe-9",
@@ -2475,7 +2523,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         9
-      ]
+      ],
+      "image": "images/wintermelon-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of wintermelon powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add",
+        "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of wintermelon powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add",
+        "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of wintermelon powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add"
+      }
     },
     {
       "id": "recipe-10",
@@ -2687,7 +2741,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         10
-      ]
+      ],
+      "image": "images/white-bunny-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of white bunny powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso.",
+        "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of white bunny powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso.",
+        "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of white bunny powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso."
+      }
     },
     {
       "id": "recipe-11",
@@ -2900,7 +2960,13 @@ window.KBR_SEED = {
       "sourcePages": [
         11,
         12
-      ]
+      ],
+      "image": "images/matcha-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Sa shaker , maglagay ng 1 ½ tablespoon ng matcha powder, kunting ice, at 100 ml water. Then shake. Or",
+        "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 180ml na milk ang baso . 3. Sa shaker , maglagay ng 1 ½ tablespoon ng matcha powder, kunting ice, at 100 ml water. Then shake. Or",
+        "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 200ml na milk ang baso . 3. Sa shaker , maglagay ng 1 ½ tablespoon ng matcha powder, kunting ice, at 100 ml water. Then shake. Or"
+      }
     },
     {
       "id": "recipe-12",
@@ -3113,7 +3179,13 @@ window.KBR_SEED = {
       "sourcePages": [
         12,
         13
-      ]
+      ],
+      "image": "images/strawberry-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 15ml (1 ½ pumps)na strawberry syrup sa jigger.",
+        "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 25ml (2 ½ pumps) na strawberry syrup sa jigger.",
+        "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 40ml (4 pumps) na strawberry syrup sa jigger."
+      }
     },
     {
       "id": "recipe-13",
@@ -3326,7 +3398,13 @@ window.KBR_SEED = {
       "sourcePages": [
         13,
         14
-      ]
+      ],
+      "image": "images/blueberry-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 15ml (1 ½",
+        "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 25ml (2 ½",
+        "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 40ml (4"
+      }
     },
     {
       "id": "recipe-14",
@@ -3539,7 +3617,13 @@ window.KBR_SEED = {
       "sourcePages": [
         14,
         15
-      ]
+      ],
+      "image": "images/caramel-brown-sugar.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng pearl at ice ang baso ng around ¾ .",
+        "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ .",
+        "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ ."
+      }
     },
     {
       "id": "recipe-15",
@@ -3772,7 +3856,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         16
-      ]
+      ],
+      "image": "images/red-matcha-milk-tea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng 10ml strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add ng 1 ½ tablespoons na matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na strawberry syrup for walling. 5. Cover with parchment paper and close.",
+        "16": "1. Lagyan ng 20ml strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 2 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na strawberry syrup for walling. 5. Cover with parchment paper and close.",
+        "22": "1. Lagyan ng 40ml strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 3 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na strawberry syrup for walling. 5. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-16",
@@ -4006,7 +4096,13 @@ window.KBR_SEED = {
       "sourcePages": [
         17,
         18
-      ]
+      ],
+      "image": "images/green-taro-milktea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add ng 1 ½ tablespoons na matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.",
+        "16": "1. Lagyan ng 20ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 2 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.",
+        "22": "1. Lagyan ng 40ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 3 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-17",
@@ -4260,7 +4356,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         19
-      ]
+      ],
+      "image": "images/dirty-taro-milktea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa coffee and choco syrup. 3. Maglagay ng 20ml na coffee syrup at 10 ml choco syrup 4. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.",
+        "16": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa coffee and choco syrup. 3. Maglagay ng 30ml na coffee syrup at 10 ml choco syrup 4. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.",
+        "22": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa coffee and choco syrup. 3. Maglagay ng 40ml na coffee syrup at 10 ml choco syrup 4. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-18",
@@ -4493,7 +4595,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         20
-      ]
+      ],
+      "image": "images/blue-ish-red-milktea.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng 10ml Strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Blueberry. 3. Maglagay ng 100ml na milk sa frother . Then add ng 1 ½ tablespoons na matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Strawberry syrup for walling. 5. Cover with parchment paper and close.",
+        "16": "1. Lagyan ng 20ml Strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Blueberry. 3. Maglagay ng 100ml na milk sa frother . Then add 2 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Strawberry syrup for walling. 5. Cover with parchment paper and close.",
+        "22": "1. Lagyan ng 40ml Strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Blueberry. 3. Maglagay ng 100ml na milk sa frother . Then add 3 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Strawberry syrup for walling. 5. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-19",
@@ -4718,15 +4826,21 @@ window.KBR_SEED = {
         ]
       },
       "sellingPrices": {
-        "12": null,
-        "16": null,
-        "22": null
+        "12": 49,
+        "16": 59,
+        "22": 79
       },
       "notes": "Procedure lists much larger milk volumes for 16/22 oz and a 40 ml taro amount for 22 oz. Imported from the ingredient lists.",
       "needsReview": true,
       "sourcePages": [
         21
-      ]
+      ],
+      "image": "images/caramel-brown-sugar.jpg",
+      "instructions": {
+        "12": "1. Lagyan ng 10ml taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa brown sugar. 3. Then lagyan ng 5ml na brown sugar syrup for walling. Add milk kung kulang. 5. Cover with parchment paper and close.",
+        "16": "1. Lagyan ng 20ml taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa brown sugar. 3. Then lagyan ng 5ml na brown sugar syrup for walling. Add milk kung kulang. 5. Cover with parchment paper and close. 5. Cover with parchment paper and close.",
+        "22": "1. Lagyan ng 40ml taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 250ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa brown sugar. . Then lagyan ng 5ml na brown sugar syrup for walling. Add milk kung kulang. 5. Cover with parchment paper and close. 5. Cover with parchment paper and close."
+      }
     },
     {
       "id": "recipe-20",
@@ -4938,7 +5052,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         22
-      ]
+      ],
+      "image": "images/americano.jpg",
+      "instructions": {
+        "12": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.",
+        "16": "1. Maglagay ng 30 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 20 ml sweetener if the customer asks.",
+        "22": "1. Maglagay ng 40 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 30 ml sweetener if the customer asks."
+      }
     },
     {
       "id": "recipe-21",
@@ -5150,7 +5270,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         23
-      ]
+      ],
+      "image": "images/cappuccino.jpg",
+      "instructions": {
+        "12": "1. Ilagay ang 20 ml coffee syrup sa frother, then add 100ml milk. Wait the mixture na mag froth. 2. Maglagay ng ¾ cup ice sa baso at ilagay yung mixture. 2. Mag-add ng milk to fill. 3. Add 10 ml sweetener if the customer asks. 4. Add Parchment paper.",
+        "16": "1. Ilagay ang 30ml coffee syrup sa frother, then add 100ml milk. Wait the mixture na mag froth. 2. Maglagay ng ¾ cup ice sa baso at ilagay yung mixture. 2. Mag-add ng milk to fill. 3. Add 10 ml sweetener if the customer asks. 4. Add Parchment paper.",
+        "22": "1. Ilagay ang 40 ml coffee syrup sa frother, then add 100ml milk. Wait the mixture na mag froth. 2. Maglagay ng ¾ cup ice sa baso at ilagay yung mixture. 2. Mag-add ng milk to fill. 3. Add 10 ml sweetener if the customer asks. 4. Add Parchment paper."
+      }
     },
     {
       "id": "recipe-22",
@@ -5384,7 +5510,13 @@ window.KBR_SEED = {
       "sourcePages": [
         24,
         25
-      ]
+      ],
+      "image": "images/vanilla-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 20 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 25ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 40 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-23",
@@ -5617,7 +5749,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         26
-      ]
+      ],
+      "image": "images/caramel-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 20ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 30 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-24",
@@ -5850,7 +5988,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         27
-      ]
+      ],
+      "image": "images/spanish-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 20ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 30 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-25",
@@ -6084,7 +6228,13 @@ window.KBR_SEED = {
       "sourcePages": [
         28,
         30
-      ]
+      ],
+      "image": "images/iced-mocha-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml choco syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 20ml choco syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 30 ml choco syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-26",
@@ -6338,7 +6488,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         29
-      ]
+      ],
+      "image": "images/caramel-macchiato.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 20 ml Vanilla at 20 ml Caramel Syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-27",
@@ -6543,230 +6699,24 @@ window.KBR_SEED = {
       },
       "sellingPrices": {
         "12": null,
-        "16": null,
+        "16": 89,
         "22": null
       },
       "notes": "Only 12 oz lists 18 g coffee beans; 16/22 oz unexpectedly list coffee syrup. Source imported as written.",
       "needsReview": true,
       "sourcePages": [
         31
-      ]
+      ],
+      "image": "images/americano.jpg",
+      "instructions": {
+        "12": "1. Make an espresso shot and add sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.",
+        "16": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.",
+        "22": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks."
+      }
     },
     {
       "id": "recipe-28",
       "name": "Cappuccino - Premium",
-      "category": "PREMIUM COFFEE",
-      "sizes": {
-        "12": [
-          {
-            "ingredient": "Ice tubes",
-            "qty": 200.0,
-            "unit": "grams",
-            "optional": false,
-            "note": "Uses the higher of menu quantity or shop minimum ice fill"
-          },
-          {
-            "ingredient": "Coffee ground",
-            "qty": 18,
-            "unit": "grams",
-            "optional": false,
-            "note": ""
-          },
-          {
-            "ingredient": "Sweetener",
-            "qty": 10,
-            "unit": "ml",
-            "optional": true,
-            "note": ""
-          },
-          {
-            "ingredient": "Water",
-            "qty": 150.0,
-            "unit": "ml",
-            "optional": false,
-            "note": "Uses the higher of menu quantity or shop minimum liquid fill"
-          },
-          {
-            "ingredient": "12 oz with logo",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Flat lids",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Thin straws",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Single Bags",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "1 bag allocated per order; if several drinks share one bag, adjust order-level costing."
-          },
-          {
-            "ingredient": "Parchment Paper",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging used by current preparation standard"
-          }
-        ],
-        "16": [
-          {
-            "ingredient": "Ice tubes",
-            "qty": 250.0,
-            "unit": "grams",
-            "optional": false,
-            "note": "Uses the higher of menu quantity or shop minimum ice fill"
-          },
-          {
-            "ingredient": "Coffee Espresso Syrup",
-            "qty": 20,
-            "unit": "ml",
-            "optional": false,
-            "note": ""
-          },
-          {
-            "ingredient": "Sweetener",
-            "qty": 10,
-            "unit": "ml",
-            "optional": true,
-            "note": ""
-          },
-          {
-            "ingredient": "Water",
-            "qty": 200.0,
-            "unit": "ml",
-            "optional": false,
-            "note": "Uses the higher of menu quantity or shop minimum liquid fill"
-          },
-          {
-            "ingredient": "16 oz with logo",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Flat lids",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Thin straws",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Single Bags",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "1 bag allocated per order; if several drinks share one bag, adjust order-level costing."
-          },
-          {
-            "ingredient": "Parchment Paper",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging used by current preparation standard"
-          }
-        ],
-        "22": [
-          {
-            "ingredient": "Ice tubes",
-            "qty": 330.0,
-            "unit": "grams",
-            "optional": false,
-            "note": "Uses the higher of menu quantity or shop minimum ice fill"
-          },
-          {
-            "ingredient": "Coffee Espresso Syrup",
-            "qty": 20,
-            "unit": "ml",
-            "optional": false,
-            "note": ""
-          },
-          {
-            "ingredient": "Sweetener",
-            "qty": 10,
-            "unit": "ml",
-            "optional": true,
-            "note": ""
-          },
-          {
-            "ingredient": "Water",
-            "qty": 300.0,
-            "unit": "ml",
-            "optional": false,
-            "note": "Uses the higher of menu quantity or shop minimum liquid fill"
-          },
-          {
-            "ingredient": "22 oz with logo",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Flat lids",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Thin straws",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging"
-          },
-          {
-            "ingredient": "Single Bags",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "1 bag allocated per order; if several drinks share one bag, adjust order-level costing."
-          },
-          {
-            "ingredient": "Parchment Paper",
-            "qty": 1,
-            "unit": "pc",
-            "optional": false,
-            "note": "Packaging used by current preparation standard"
-          }
-        ]
-      },
-      "sellingPrices": {
-        "12": null,
-        "16": null,
-        "22": null
-      },
-      "notes": "Page 32 is labelled Cappuccino but the recipe resembles Americano. Page 33 contains a milk-based Cappuccino. Kept page 32 recipe separately as imported source; edit as needed.",
-      "needsReview": true,
-      "sourcePages": [
-        32
-      ]
-    },
-    {
-      "id": "recipe-29",
-      "name": "Cappuccino - Premium (Milk)",
       "category": "PREMIUM COFFEE",
       "sizes": {
         "12": [
@@ -6967,14 +6917,21 @@ window.KBR_SEED = {
       },
       "sellingPrices": {
         "12": null,
-        "16": null,
+        "16": 99,
         "22": null
       },
-      "notes": "Procedure refers to an espresso shot, but ingredient list uses coffee syrup. Imported from ingredient list.",
+      "notes": "Premium cappuccino consolidated to the milk/frothed recipe. Duplicate Premium (Milk) entry removed.",
       "needsReview": true,
       "sourcePages": [
+        32,
         33
-      ]
+      ],
+      "image": "images/cappuccino.jpg",
+      "instructions": {
+        "12": "1. Make an espresso shot and add sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.",
+        "16": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.",
+        "22": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks."
+      }
     },
     {
       "id": "recipe-30",
@@ -7228,7 +7185,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         34
-      ]
+      ],
+      "image": "images/vanilla-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 20 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup and espresso shot. Add milk to full. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 25ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup and espresso shot. Add milk to full. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 40 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup and espresso shot. Add milk to full. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-31",
@@ -7482,7 +7445,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         35
-      ]
+      ],
+      "image": "images/caramel-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 20ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup espresso shot. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 30 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup espresso shot. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-32",
@@ -7736,7 +7705,13 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         36
-      ]
+      ],
+      "image": "images/spanish-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 20ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 30 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-33",
@@ -7990,7 +7965,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         37
-      ]
+      ],
+      "image": "images/iced-mocha-latte.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml choco syrup, then add 20 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 20 ml choco syrup, then add 30 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 30 ml choco syrup, then add 40 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-34",
@@ -8265,7 +8246,13 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         38
-      ]
+      ],
+      "image": "images/caramel-macchiato.jpg",
+      "instructions": {
+        "12": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup, then add 20 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.",
+        "16": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup,then add 30 ml coffee syrup then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.",
+        "22": "1. Sa baso, maglagay ng 20 ml Vanilla at 20 ml Caramel Syrup,then add 40 ml coffee syrup then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it."
+      }
     },
     {
       "id": "recipe-35",
@@ -8448,7 +8435,12 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         39
-      ]
+      ],
+      "image": "images/frappuccino.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. 5. Close it with a dome lid and serve."
+      }
     },
     {
       "id": "recipe-36",
@@ -8659,7 +8651,12 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         40
-      ]
+      ],
+      "image": "images/frappe-macchiato.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 ml vanilla 20 ml caramel 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 ml vanilla 20 ml caramel 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. 5. Close it with a dome lid and serve."
+      }
     },
     {
       "id": "recipe-37",
@@ -8870,7 +8867,12 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         41
-      ]
+      ],
+      "image": "images/frappe-de-taro.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 grams of ube powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml Taro syrup for walling. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 grams of ube powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. Use 10 ml Taro syrup for walling. 5. Close it with a dome lid and serve."
+      }
     },
     {
       "id": "recipe-38",
@@ -9067,7 +9069,12 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         42
-      ]
+      ],
+      "image": "images/frappe-de-choco.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml choco syrup 20 grams of black forest powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml choco syrup for walling. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml choco syrup 20 grams of black forest powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. Use 10 ml choco syrup for walling. 5. Close it with a dome lid and serve."
+      }
     },
     {
       "id": "recipe-39",
@@ -9257,7 +9264,12 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         43
-      ]
+      ],
+      "image": "images/mekus-de-berries.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml na Strawberry Syrup 20 ml na Blueberry Syrup 3. Sa baso, maglagay ng blueberry jam at gamiting pang walling. Then ilagay sa baso yung nablender. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml na Strawberry Syrup 20 ml na Blueberry Syrup 3. Sa baso, maglagay ng blueberry jam at gamiting pang walling. Then ilagay sa baso yung nablender. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve."
+      }
     },
     {
       "id": "recipe-40",
@@ -9454,7 +9466,12 @@ window.KBR_SEED = {
       "needsReview": false,
       "sourcePages": [
         44
-      ]
+      ],
+      "image": "images/familia-de-verde.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams avocado 20 grams matcha powder 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml green apple syrup for walling. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams avocado 20 grams matcha powder 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. Use 10 ml green apple syrup for walling. 5. Close it with a dome lid and serve."
+      }
     },
     {
       "id": "recipe-41",
@@ -9658,7 +9675,12 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         45
-      ]
+      ],
+      "image": "images/matcha-frappe.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams matcha powder 10 ml vanilla syrup 3 grams premium matcha 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml choco syrup for walling. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams matcha powder 10 ml vanilla syrup 3 grams premium matcha 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. 5. Close it with a dome lid and serve."
+      }
     },
     {
       "id": "recipe-42",
@@ -9806,7 +9828,12 @@ window.KBR_SEED = {
       "needsReview": true,
       "sourcePages": [
         46
-      ]
+      ],
+      "image": "images/mango-smoothie.jpg",
+      "instructions": {
+        "16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 2 scoops ng mango jam then blend. 3. Sa baso, maglagay ng half scoop ng mango Jam for walling. Then ilagay ang blended drink. Use half a scoop of mango jam pang toppings. 4. Close it with a flat lid and serve.",
+        "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 2 scoops ng mango jam then blend. 3. Sa baso, maglagay ng half scoop ng mango Jam for walling. Then ilagay ang blended drink. 4. Add 1 scoop of vanilla ice cream. Use half a scoop of mango jam pang toppings. 5. Close it with a dome lid and serve."
+      }
     }
   ],
   "meta": {

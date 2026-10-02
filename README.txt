@@ -115,3 +115,14 @@ v9 update:
 - If a recipe still has unresolved costing lines, its difference is marked provisional.
 - CSV export now includes current selling price and difference for every size.
 - Existing user-edited selling prices are preserved; migration fills only blank selling prices.
+
+v10 update:
+- Recipe detail screen redesigned for landscape tablet use.
+- Drink name is on the left, ordering-app image beside it, and current costing/current price/difference on the right.
+- Recipe is split into Ingredients (left) and Packaging (right).
+- Ingredients and packaging can be added or removed directly.
+- Size-specific editable Instructions are shown below the recipe.
+- Ordering-app images from images.zip are bundled for offline use.
+- Brown Sugar Taro prices set to 49/59/79.
+- Premium Americano 16 oz price set to 89.
+- Premium Cappuccino consolidated to one milk/frothed recipe; 16 oz current price set to 99.

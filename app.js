@@ -448,11 +448,13 @@
     r.name=$('#editRecipeName').value.trim()||'Untitled Recipe';
     r.category=$('#editRecipeCategory').value.trim();
     r.notes=$('#recipeNotes').value.trim();
+    r.instructions ||= {'12':'','16':'','22':''};
+    r.instructions[activeRecipeSize]=$('#recipeInstructions')?.value.trim()||'';
     const sp=$('#sellingPrice').value; r.sellingPrices[activeRecipeSize]=sp===''?null:Number(sp);
     saveState(); renderAll();
   }
   function addNewRecipe(){
-    const r={id:uid('recipe'),name:'New Recipe',category:'',sizes:{'12':[],'16':[],'22':[]},sellingPrices:{'12':null,'16':null,'22':null},notes:'',needsReview:false,sourcePages:[]};
+    const r={id:uid('recipe'),name:'New Recipe',category:'',sizes:{'12':[],'16':[],'22':[]},sellingPrices:{'12':null,'16':null,'22':null},instructions:{'12':'','16':'','22':''},image:'',notes:'',needsReview:false,sourcePages:[]};
     state.recipes.unshift(r); selectedRecipeId=r.id; activeRecipeSize='12'; saveState(); renderAll();
   }
 
