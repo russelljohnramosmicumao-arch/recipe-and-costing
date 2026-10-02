@@ -1,7 +1,7 @@
 (() => {
-  const STORAGE_KEY = 'kbr-costing-data-v9';
-  const LEGACY_STORAGE_KEY = 'kbr-costing-data-v8';
-  const LEGACY_STORAGE_KEY_V1 = 'kbr-costing-data-v7';
+  const STORAGE_KEY = 'kbr-costing-data-v11';
+  const LEGACY_STORAGE_KEY = 'kbr-costing-data-v9';
+  const LEGACY_STORAGE_KEY_V1 = 'kbr-costing-data-v8';
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const money = n => Number.isFinite(n) ? `₱${n.toFixed(2)}` : '—';
@@ -40,7 +40,7 @@
     {id:'pkg-single-bag',name:'Single Bags',price:730,purchaseQty:1000,unit:'pc'},
     {id:'pkg-parchment',name:'Parchment Paper',price:70,purchaseQty:100,unit:'pc'}
   ];
-  function migrateV9(data){
+  function migrateV11(data){
     data = data || {ingredients:[],recipes:[]};
     data.ingredients ||= []; data.recipes ||= [];
     // Fresh milk is no longer used. Convert any old generic/fresh-milk recipe references to Milk (Made).
@@ -177,62 +177,89 @@
         if((r.sellingPrices[s]===null || r.sellingPrices[s]==='' || r.sellingPrices[s]===undefined) && src[s]!=null) r.sellingPrices[s]=src[s];
       });
     });
+    // v11: latest images, instructions, prices, and Premium Cappuccino cleanup.
+    const premiumMilk=data.recipes.find(r=>r.name==='Cappuccino - Premium (Milk)');
+    const premiumBase=data.recipes.find(r=>r.name==='Cappuccino - Premium');
+    if(premiumMilk){
+      if(premiumBase){
+        premiumBase.sizes=premiumMilk.sizes;
+        premiumBase.notes='Premium cappuccino consolidated to the milk/frothed recipe.';
+      } else {
+        premiumMilk.name='Cappuccino - Premium';
+      }
+      data.recipes=data.recipes.filter(r=>r.name!=='Cappuccino - Premium (Milk)');
+    }
+    const v11Meta={"Fruit Soda": {"image": "images/green-apple.jpg", "instructions": {"12": "1. Lagay ng 1 ½ PUMPS ng syrup sa baso. 2. Lagyan ng ice ang baso. Around ¾ ng buong baso. 3. Lagyan ng Sprite ang baso. Wag masyadong punuin para sa toppings. 4. Lagyan ng Rainbow jelly na topping. Isang kutsara. 5. Lagyan ng parchment paper sa taas ng baso then close.", "16": "1. Lagay ng 2½ PUMPS ng syrup sa baso. 2. Lagyan ng ice ang baso. Around ¾ ng buong baso. 3. Lagyan ng Sprite ang baso. Wag masyadong punuin para sa toppings. 4. Lagyan ng Rainbow jelly na topping. Isang kutsara. 5. Lagyan ng parchment paper sa taas ng baso then close.", "22": "1. Lagay ng 4 PUMPS ng syrup sa baso. 2. Lagyan ng ice ang baso. Around ¾ ng buong baso. 3. Lagyan ng Sprite ang baso. Wag masyadong punuin para sa toppings. 4. Lagyan ng Rainbow jelly na topping. Isang kutsara. 5. Lagyan ng parchment paper sa taas ng baso then close."}, "sellingPrices": {"12": 39.0, "16": 49.0, "22": 69.0}}, "Coke Float": {"image": "images/coke-float.jpg", "instructions": {"12": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng Coke ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.", "16": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng Coke ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.", "22": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng Coke ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup."}, "sellingPrices": {"12": 49.0, "16": 59.0, "22": 69.0}}, "Chuckie Float": {"image": "images/chuckie-float.jpg", "instructions": {"12": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml na Chuckie ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.", "16": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 180ml na Chuckie ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup.", "22": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml at 180ml na Chuckie ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng choco syrup."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 89.0}}, "Dutchmill Float": {"image": "images/dutchmill-float.jpg", "instructions": {"12": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml na Dutchmill ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng strawberry syrup.", "16": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 180ml na Dutchmill ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng strawberry syrup.", "22": "1. Lagyan ng ice ang baso. Around ¾ ng buong baso. 2. Lagyan ng 110ml at 180ml na Dutchmill ang baso. Wag masyadong punuin para sa toppings. 3. Lagyan ng 1 scoop ice cream. 4. Add choco walling at drizzle yung ice cream ng strawberry syrup."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 89.0}}, "Classic Taro": {"image": "images/taro-milk-tea.jpg", "instructions": {"12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of taro powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro syrup na pang walling. 9. Cover with parchment paper and close.", "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of taro powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro syrup na pang walling. 9. Cover with parchment paper and close.", "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of taro powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro syrup na pang walling. 9. Cover with parchment paper and close."}, "sellingPrices": {"12": 49.0, "16": 59.0, "22": 79.0}}, "Okinawa": {"image": "images/okinawa-milk-tea.jpg", "instructions": {"12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of okinawa powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add okinawa syrup na pang walling. 9. Cover with parchment paper and close.", "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of okinawa powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro okinawa na pang walling. 9. Cover with parchment paper and close.", "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of okinawa powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Taro okinawa na pang walling. 9. Cover with parchment paper and close."}, "sellingPrices": {"12": 59.0, "16": 69.0, "22": 89.0}}, "Cookies and Cream Milk Tea": {"image": "images/cookies-and-cream.jpg", "instructions": {"12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of Cookies and Cream powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang walling. 9. Cover with parchment paper and close.", "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of Cookies and Cream powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang walling. 9. Cover with parchment paper and close.", "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of Cookies and Cream powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang walling. 9. Cover with parchment paper and close."}, "sellingPrices": {"12": 59.0, "16": 69.0, "22": 89.0}}, "Black Forest Choco": {"image": "images/black-forest-choco.jpg", "instructions": {"12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of Blackforest Choco powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang", "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of Blackforest Choco powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang", "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2 1⁄2 tablespoons of Blackforest Choco powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add more milk. 8. Add Choco syrup na pang"}, "sellingPrices": {"12": 59.0, "16": 69.0, "22": 89.0}}, "Wintermelon": {"image": "images/wintermelon-milk-tea.jpg", "instructions": {"12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of wintermelon powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add", "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of wintermelon powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add", "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of wintermelon powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso. 7. Ilipat sa Baso yung mixture. Kung kulang, add"}, "sellingPrices": {"12": 59.0, "16": 69.0, "22": 89.0}}, "White Bunny": {"image": "images/white-bunny-milk-tea.jpg", "instructions": {"12": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 100ml na milk ang shaker . 4. Maglagay ng 1 ½ tablespoon of white bunny powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso.", "16": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 180ml na milk ang shaker . 4. Maglagay ng 2 tablespoons of white bunny powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso.", "22": "1. Punuin ang baso ng ice . 2. Ilipat ice sa Shaker . 3. Lagyan ng 200ml na milk ang shaker . 4. Maglagay ng 2½ tablespoon of white bunny powder ang shaker. 5. Shake the mixture thoroughly. 6. Add Bobba Pearls sa baso."}, "sellingPrices": {"12": 49.0, "16": 59.0, "22": 79.0}}, "Matcha Milktea": {"image": "images/matcha-milk-tea.jpg", "instructions": {"12": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Sa shaker , maglagay ng 1 ½ tablespoon ng matcha powder, kunting ice, at 100 ml water. Then shake. Or", "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 180ml na milk ang baso . 3. Sa shaker , maglagay ng 1 ½ tablespoon ng matcha powder, kunting ice, at 100 ml water. Then shake. Or", "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 200ml na milk ang baso . 3. Sa shaker , maglagay ng 1 ½ tablespoon ng matcha powder, kunting ice, at 100 ml water. Then shake. Or"}, "sellingPrices": {"12": 59.0, "16": 69.0, "22": 89.0}}, "Strawberry Milk Tea (Syrup)": {"image": "images/strawberry-milk-tea.jpg", "instructions": {"12": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 15ml (1 ½ pumps)na strawberry syrup sa jigger.", "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 25ml (2 ½ pumps) na strawberry syrup sa jigger.", "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 40ml (4 pumps) na strawberry syrup sa jigger."}, "sellingPrices": {"12": 49.0, "16": 59.0, "22": 79.0}}, "Blueberry Milk Tea (Syrup)": {"image": "images/blueberry-milk-tea.jpg", "instructions": {"12": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 15ml (1 ½", "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 25ml (2 ½", "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso . 3. Maglagay ng 40ml (4"}, "sellingPrices": {"12": 49.0, "16": 59.0, "22": 79.0}}, "Brown Sugar Milk Tea (Syrup)": {"image": "images/caramel-brown-sugar.jpg", "instructions": {"12": "1. Lagyan ng pearl at ice ang baso ng around ¾ .", "16": "1. Lagyan ng pearl at ice ang baso ng around ¾ .", "22": "1. Lagyan ng pearl at ice ang baso ng around ¾ ."}, "sellingPrices": {"12": 49.0, "16": 59.0, "22": 79.0}}, "Red Matcha Milk Tea (Strawberry Matcha)": {"image": "images/red-matcha-milk-tea.jpg", "instructions": {"12": "1. Lagyan ng 10ml strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add ng 1 ½ tablespoons na matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na strawberry syrup for walling. 5. Cover with parchment paper and close.", "16": "1. Lagyan ng 20ml strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 2 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na strawberry syrup for walling. 5. Cover with parchment paper and close.", "22": "1. Lagyan ng 40ml strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 3 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na strawberry syrup for walling. 5. Cover with parchment paper and close."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Green Taro Milk Tea (Matcha Taro)": {"image": "images/green-taro-milktea.jpg", "instructions": {"12": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add ng 1 ½ tablespoons na matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.", "16": "1. Lagyan ng 20ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 2 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.", "22": "1. Lagyan ng 40ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Matcha. 3. Maglagay ng 100ml na milk sa frother . Then add 3 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Dirty Taro Milk Tea (Mocha Taro)": {"image": "images/dirty-taro-milktea.jpg", "instructions": {"12": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa coffee and choco syrup. 3. Maglagay ng 20ml na coffee syrup at 10 ml choco syrup 4. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.", "16": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa coffee and choco syrup. 3. Maglagay ng 30ml na coffee syrup at 10 ml choco syrup 4. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close.", "22": "1. Lagyan ng 10ml Taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa coffee and choco syrup. 3. Maglagay ng 40ml na coffee syrup at 10 ml choco syrup 4. Add milk kung kulang. Then lagyan ng 5ml na Taro syrup for walling. 5. Cover with parchment paper and close."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Blue-ish Red Milk Tea (Blueberry & Strawberry)": {"image": "images/blue-ish-red-milktea.jpg", "instructions": {"12": "1. Lagyan ng 10ml Strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Blueberry. 3. Maglagay ng 100ml na milk sa frother . Then add ng 1 ½ tablespoons na matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Strawberry syrup for walling. 5. Cover with parchment paper and close.", "16": "1. Lagyan ng 20ml Strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Blueberry. 3. Maglagay ng 100ml na milk sa frother . Then add 2 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Strawberry syrup for walling. 5. Cover with parchment paper and close.", "22": "1. Lagyan ng 40ml Strawberry syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 50ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa Blueberry. 3. Maglagay ng 100ml na milk sa frother . Then add 3 tablespoons of matcha powder. Then mix. 4. Ilagay ang mixture sa baso. Add milk kung kulang. Then lagyan ng 5ml na Strawberry syrup for walling. 5. Cover with parchment paper and close."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Brown Sugar Taro Milk Tea": {"image": "images/caramel-brown-sugar.jpg", "instructions": {"12": "1. Lagyan ng 10ml taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 100ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa brown sugar. 3. Then lagyan ng 5ml na brown sugar syrup for walling. Add milk kung kulang. 5. Cover with parchment paper and close.", "16": "1. Lagyan ng 20ml taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 1 70ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa brown sugar. 3. Then lagyan ng 5ml na brown sugar syrup for walling. Add milk kung kulang. 5. Cover with parchment paper and close. 5. Cover with parchment paper and close.", "22": "1. Lagyan ng 40ml taro syrup ang baso. Then add 50ml milk and mix them. 2. Lagyan ng pearl at ice ang baso ng around ¾ . 2. Lagyan ng 250ml na milk ang baso or punuin hanggang ¾ lang ng baso. Magtira ng space para sa brown sugar. . Then lagyan ng 5ml na brown sugar syrup for walling. Add milk kung kulang. 5. Cover with parchment paper and close. 5. Cover with parchment paper and close."}, "sellingPrices": {"12": 49, "16": 59, "22": 79}}, "Americano - Budget": {"image": "images/americano.jpg", "instructions": {"12": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.", "16": "1. Maglagay ng 30 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 20 ml sweetener if the customer asks.", "22": "1. Maglagay ng 40 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 30 ml sweetener if the customer asks."}, "sellingPrices": {"12": null, "16": 89.0, "22": 109.0}}, "Cappuccino - Budget": {"image": "images/cappuccino.jpg", "instructions": {"12": "1. Ilagay ang 20 ml coffee syrup sa frother, then add 100ml milk. Wait the mixture na mag froth. 2. Maglagay ng ¾ cup ice sa baso at ilagay yung mixture. 2. Mag-add ng milk to fill. 3. Add 10 ml sweetener if the customer asks. 4. Add Parchment paper.", "16": "1. Ilagay ang 30ml coffee syrup sa frother, then add 100ml milk. Wait the mixture na mag froth. 2. Maglagay ng ¾ cup ice sa baso at ilagay yung mixture. 2. Mag-add ng milk to fill. 3. Add 10 ml sweetener if the customer asks. 4. Add Parchment paper.", "22": "1. Ilagay ang 40 ml coffee syrup sa frother, then add 100ml milk. Wait the mixture na mag froth. 2. Maglagay ng ¾ cup ice sa baso at ilagay yung mixture. 2. Mag-add ng milk to fill. 3. Add 10 ml sweetener if the customer asks. 4. Add Parchment paper."}, "sellingPrices": {"12": null, "16": 99.0, "22": 119.0}}, "Vanilla Latte - Budget": {"image": "images/vanilla-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 20 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 25ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 40 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. 4. And Parchment paper and close it."}, "sellingPrices": {"12": 59.0, "16": 69.0, "22": 89.0}}, "Caramel Latte - Budget": {"image": "images/caramel-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 20ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 30 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Spanish Latte - Budget": {"image": "images/spanish-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 20ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 30 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Iced Mocha Latte - Budget": {"image": "images/iced-mocha-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml choco syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 20ml choco syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 30 ml choco syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Caramel Macchiato Latte - Budget": {"image": "images/caramel-macchiato.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 20 ml Vanilla at 20 ml Caramel Syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": 69.0, "16": 79.0, "22": 99.0}}, "Americano - Premium": {"image": "images/americano.jpg", "instructions": {"12": "1. Make an espresso shot and add sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.", "16": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.", "22": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks."}, "sellingPrices": {"12": null, "16": 89, "22": null}}, "Cappuccino - Premium": {"image": "images/cappuccino.jpg", "instructions": {"12": "1. Make an espresso shot and add sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.", "16": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks.", "22": "1. Maglagay ng 20 ml Coffee Syrup sa baso. 2. ¾ cup of ice then top it with water. 3. Add 10 ml sweetener if the customer asks."}, "sellingPrices": {"12": null, "16": 99, "22": null}}, "Vanilla Latte - Premium": {"image": "images/vanilla-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 20 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup and espresso shot. Add milk to full. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 25ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup and espresso shot. Add milk to full. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 40 ml vanilla syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup and espresso shot. Add milk to full. 4. And Parchment paper and close it."}, "sellingPrices": {"12": null, "16": 109.0, "22": 129.0}}, "Caramel Latte - Premium": {"image": "images/caramel-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 20ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup espresso shot. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 30 ml caramel syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup espresso shot. Add milk to full. Add 5 ml caramel for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": null, "16": 109.0, "22": 129.0}}, "Spanish Latte - Premium": {"image": "images/spanish-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 20 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 20ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 30 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 30 ml condensed milk, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the 40 ml coffee syrup and espresso shot. Add milk to full. Add 5 ml condensed milk for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": null, "16": 119.0, "22": 139.0}}, "Iced Mocha Latte - Premium": {"image": "images/iced-mocha-latte.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml choco syrup, then add 20 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 20 ml choco syrup, then add 30 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 30 ml choco syrup, then add 40 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml choco syrup for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": null, "16": 109.0, "22": 129.0}}, "Caramel Macchiato Latte - Premium": {"image": "images/caramel-macchiato.jpg", "instructions": {"12": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup, then add 20 ml coffee syrup, then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.", "16": "1. Sa baso, maglagay ng 10 ml Vanilla at 10 ml Caramel syrup,then add 30 ml coffee syrup then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it.", "22": "1. Sa baso, maglagay ng 20 ml Vanilla at 20 ml Caramel Syrup,then add 40 ml coffee syrup then 100ml milk. Mix it. 2. Punuin ng baso ng ice hanggang ¾ lang. Mag-iwan ng space para sa kape. 3. Drizzle the espresso shot. Add milk to full. Add 5 ml caramel syrup for walling. 4. And Parchment paper and close it."}, "sellingPrices": {"12": null, "16": 119.0, "22": 139.0}}, "Frappuccino": {"image": "images/frappuccino.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 99.0, "22": 119.0}}, "Frapmacchiato": {"image": "images/frappe-macchiato.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 ml vanilla 20 ml caramel 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 ml vanilla 20 ml caramel 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 99.0, "22": 119.0}}, "Frappe' de Ube (Taro)": {"image": "images/frappe-de-taro.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 grams of ube powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml Taro syrup for walling. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml coffee syrup 20 grams of ube powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. Use 10 ml Taro syrup for walling. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 99.0, "22": 119.0}}, "Frappe' de Choco": {"image": "images/frappe-de-choco.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml choco syrup 20 grams of black forest powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml choco syrup for walling. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml choco syrup 20 grams of black forest powder 1 instant coffee 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. Use 10 ml choco syrup for walling. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 99.0, "22": 119.0}}, "Mekus de Beries": {"image": "images/mekus-de-berries.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml na Strawberry Syrup 20 ml na Blueberry Syrup 3. Sa baso, maglagay ng blueberry jam at gamiting pang walling. Then ilagay sa baso yung nablender. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 ml na Strawberry Syrup 20 ml na Blueberry Syrup 3. Sa baso, maglagay ng blueberry jam at gamiting pang walling. Then ilagay sa baso yung nablender. Maglagay ng half spoon na white choco chips. 4. Close it with a flat lid and serve."}, "sellingPrices": {"12": null, "16": 99.0, "22": 119.0}}, "Familia de Verde": {"image": "images/familia-de-verde.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams avocado 20 grams matcha powder 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml green apple syrup for walling. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams avocado 20 grams matcha powder 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. Use 10 ml green apple syrup for walling. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 109.0, "22": 129.0}}, "Matcha Frappe": {"image": "images/matcha-frappe.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams matcha powder 10 ml vanilla syrup 3 grams premium matcha 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. Use 10 ml choco syrup for walling. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 20 grams matcha powder 10 ml vanilla syrup 3 grams premium matcha 3. Blend lahat. Then ilagay sa baso. Maglagay ng half spoon na white choco chips. 4. Add 1 scoop of vanilla ice cream. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 109.0, "22": 129.0}}, "Mango Smoothie": {"image": "images/mango-smoothie.jpg", "instructions": {"16": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 2 scoops ng mango jam then blend. 3. Sa baso, maglagay ng half scoop ng mango Jam for walling. Then ilagay ang blended drink. Use half a scoop of mango jam pang toppings. 4. Close it with a flat lid and serve.", "22": "1. Sa baso, punuin ng ice . Ilagay yung ice sa blender . 2. Sa blender, maglagay ng 120 ml na milk. 20 ml na sweetener 20 ml na condensed milk 2 scoops ng mango jam then blend. 3. Sa baso, maglagay ng half scoop ng mango Jam for walling. Then ilagay ang blended drink. 4. Add 1 scoop of vanilla ice cream. Use half a scoop of mango jam pang toppings. 5. Close it with a dome lid and serve."}, "sellingPrices": {"12": null, "16": 109.0, "22": 129.0}}};
+    data.recipes.forEach(r=>{
+      const meta=v11Meta[r.name];
+      if(!meta) return;
+      if(meta.image) r.image=meta.image;
+      r.instructions ||= {'12':'','16':'','22':''};
+      ['12','16','22'].forEach(s=>{
+        if(!r.instructions[s] && meta.instructions?.[s]) r.instructions[s]=meta.instructions[s];
+      });
+      r.sellingPrices ||= {'12':null,'16':null,'22':null};
+      ['12','16','22'].forEach(s=>{
+        if((r.sellingPrices[s]===null || r.sellingPrices[s]==='' || r.sellingPrices[s]===undefined) && meta.sellingPrices?.[s]!=null)
+          r.sellingPrices[s]=meta.sellingPrices[s];
+      });
+    });
     return data;
   }
   function loadState(){
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return migrateV9(JSON.parse(saved));
+      if (saved) return migrateV11(JSON.parse(saved));
       const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
       if (legacy){
-        const migrated = migrateV9(JSON.parse(legacy));
+        const migrated = migrateV11(JSON.parse(legacy));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyV1 = localStorage.getItem(LEGACY_STORAGE_KEY_V1);
       if (legacyV1){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyV1)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyV1)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyOld = localStorage.getItem('kbr-costing-data-v1');
       if (legacyOld){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyOld)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyOld)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyV2 = localStorage.getItem('kbr-costing-data-v2');
       if (legacyV2){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyV2)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyV2)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyV3 = localStorage.getItem('kbr-costing-data-v3');
       if (legacyV3){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyV3)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyV3)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyV4 = localStorage.getItem('kbr-costing-data-v4');
       if (legacyV4){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyV4)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyV4)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyV5 = localStorage.getItem('kbr-costing-data-v5');
       if (legacyV5){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyV5)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyV5)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
       const legacyV6 = localStorage.getItem('kbr-costing-data-v6');
       if (legacyV6){
-        const migrated = migrateV9(pruneUnusedIngredients(JSON.parse(legacyV6)));
+        const migrated = migrateV11(pruneUnusedIngredients(JSON.parse(legacyV6)));
         localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
         return migrated;
       }
     } catch(e){ console.warn(e); }
-    return migrateV9(clone(window.KBR_SEED));
+    return migrateV11(clone(window.KBR_SEED));
   }
   function saveState(){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -389,67 +416,180 @@
     $$('.recipe-item').forEach(el=>el.onclick=()=>{selectedRecipeId=el.dataset.recipeId; activeRecipeSize='12'; renderRecipeList(); renderRecipeEditor();});
   }
 
+
+  function isPackagingLine(line){
+    const n=(line?.ingredient||'').trim().toLowerCase();
+    const packagingNames=new Set([
+      '12 oz with logo','16 oz with logo','22 oz with logo',
+      'flat lids','dome lids','thin straws','bobba straws',
+      'single bags','parchment paper'
+    ]);
+    return packagingNames.has(n) || /packaging/i.test(line?.note||'');
+  }
+
+  function lineEditorHtml(ln,idx){
+    const lc=lineCost(ln);
+    return `<div class="line-row kbr-compact" data-line="${idx}">
+      <select class="line-ingredient">${state.ingredients.map(i=>`<option ${i.name===ln.ingredient?'selected':''}>${escapeHtml(i.name)}</option>`).join('')}${findIngredient(ln.ingredient)?'':`<option selected>${escapeHtml(ln.ingredient)}</option>`}</select>
+      <input class="line-qty" type="number" min="0" step="0.01" value="${ln.qty}">
+      <select class="line-unit">${recipeUnits.map(u=>`<option ${normUnit(u)===normUnit(ln.unit)?'selected':''}>${u}</option>`).join('')}</select>
+      <input class="line-optional" type="checkbox" ${ln.optional?'checked':''} title="Optional ingredient">
+      <div class="line-cost">${lc.cost==null?`<span class="cost-error">${escapeHtml(lc.error)}</span>`:money(lc.cost)}</div>
+      <button class="icon-btn line-delete" type="button" title="Remove">×</button>
+    </div>`;
+  }
+
   function renderRecipeEditor(){
     const host=$('#recipeEditor');
     const r=state.recipes.find(x=>x.id===selectedRecipeId);
     if(!r){host.innerHTML='<div class="empty-state">Select a recipe to edit.</div>';return;}
+
+    r.instructions ||= {'12':'','16':'','22':''};
+    r.sellingPrices ||= {'12':null,'16':null,'22':null};
+
     const sc=sizeCost(r,activeRecipeSize);
+    const sell=Number(r.sellingPrices?.[activeRecipeSize]);
+    const diff=sell>0?sell-sc.total:null;
+    const lines=r.sizes?.[activeRecipeSize]||[];
+    const ingredientCount=lines.filter(x=>!isPackagingLine(x)).length;
+    const packagingCount=lines.filter(isPackagingLine).length;
+
     host.innerHTML=`
-      <div class="editor-head">
-        <div class="editor-title-grid"><input id="editRecipeName" value="${escapeAttr(r.name)}"/><input id="editRecipeCategory" value="${escapeAttr(r.category||'')}" placeholder="Category"/></div>
+      <div class="kbr-recipe-hero">
+        <section class="kbr-drink-info">
+          <span class="kbr-eyebrow">Drink</span>
+          <input id="editRecipeName" class="kbr-name-input" value="${escapeAttr(r.name)}">
+          <input id="editRecipeCategory" class="kbr-category-input" value="${escapeAttr(r.category||'')}" placeholder="Category">
+          <div class="size-tabs">${['12','16','22'].map(s=>`<button class="size-tab ${s===activeRecipeSize?'active':''}" data-size="${s}">${sizeLabels[s]}</button>`).join('')}</div>
+        </section>
+
+        <section class="kbr-photo-box">
+          ${r.image?`<img src="${escapeAttr(r.image)}" alt="${escapeAttr(r.name)}">`:`<div class="kbr-photo-empty">No image</div>`}
+        </section>
+
+        <section class="kbr-price-box">
+          <div class="kbr-price-row"><span>Current costing</span><strong>${money(sc.total)}</strong></div>
+          <div class="kbr-price-row">
+            <span>Current price</span>
+            <strong>${sell>0?money(sell):'—'}</strong>
+            <input id="sellingPrice" class="selling-input" type="number" min="0" step="0.01" value="${r.sellingPrices?.[activeRecipeSize]??''}" placeholder="Price">
+          </div>
+          <div class="kbr-price-row ${diff!=null&&diff<0?'kbr-loss':''}">
+            <span>Difference</span><strong>${diff!=null?money(diff):'—'}</strong>
+            <small>${sc.unresolved?`${sc.unresolved} unresolved cost line(s)`:sell>0?`Food cost ${(sc.total/sell*100).toFixed(1)}%`:'Enter current price'}</small>
+          </div>
+        </section>
+      </div>
+
+      <div class="kbr-recipe-titlebar">
+        <div><h3>Recipe</h3><span>${ingredientCount} ingredients · ${packagingCount} packaging</span></div>
         <button class="danger-link" id="deleteRecipeBtn">Delete recipe</button>
       </div>
-      <div class="size-tabs">${['12','16','22'].map(s=>`<button class="size-tab ${s===activeRecipeSize?'active':''}" data-size="${s}">${sizeLabels[s]}</button>`).join('')}</div>
-      <div class="recipe-lines">
-        <div class="line-row header"><div>Ingredient</div><div>Qty</div><div>Unit</div><div>Optional</div><div>Line cost</div><div></div></div>
-        <div id="recipeLineRows"></div>
+
+      <div class="kbr-recipe-grid">
+        <section class="kbr-recipe-card">
+          <div class="kbr-card-head">
+            <div><h4>Ingredients</h4><span>Add, remove, or change ingredients.</span></div>
+            <button id="addRecipeLineBtn" class="btn small primary">+ Ingredient</button>
+          </div>
+          <div class="kbr-line-head"><span>Ingredient</span><span>Qty</span><span>Unit</span><span>Opt.</span><span>Cost</span><span></span></div>
+          <div id="ingredientLineRows"></div>
+        </section>
+
+        <section class="kbr-recipe-card kbr-packaging-card">
+          <div class="kbr-card-head">
+            <div><h4>Packaging</h4><span>Cup, lid, straw, bag, paper.</span></div>
+            <button id="addPackagingLineBtn" class="btn small">+ Packaging</button>
+          </div>
+          <div class="kbr-line-head"><span>Packaging</span><span>Qty</span><span>Unit</span><span>Opt.</span><span>Cost</span><span></span></div>
+          <div id="packagingLineRows"></div>
+        </section>
       </div>
-      <div class="recipe-total"><span>Recipe cost</span><strong>${money(sc.total)}</strong>${sc.unresolved?`<span class="badge warn">${sc.unresolved} unresolved</span>`:'<span class="badge ok">complete</span>'}</div>
-      <div class="editor-actions"><button id="addRecipeLineBtn" class="btn">+ Add ingredient</button><div class="selling-row"><label>Selling price</label><input id="sellingPrice" class="selling-input" type="number" min="0" step="0.01" value="${r.sellingPrices?.[activeRecipeSize]??''}" placeholder="₱"><span class="subtle" id="foodCostPct"></span><button id="saveRecipeBtn" class="btn primary">Save recipe</button></div></div>
+
+      <div class="recipe-total kbr-total">
+        <span>Total recipe + packaging cost</span>
+        <strong>${money(sc.total)}</strong>
+        ${sc.unresolved?`<span class="badge warn">${sc.unresolved} unresolved</span>`:'<span class="badge ok">complete</span>'}
+      </div>
+
+      <section class="kbr-instructions-card">
+        <div class="kbr-card-head">
+          <div><h4>Instructions</h4><span>Preparation steps for ${sizeLabels[activeRecipeSize]}.</span></div>
+          <button id="saveRecipeBtn" class="btn primary">Save recipe</button>
+        </div>
+        <textarea id="recipeInstructions" placeholder="Enter preparation instructions…">${escapeHtml(r.instructions?.[activeRecipeSize]||'')}</textarea>
+      </section>
+
       ${r.needsReview?`<div class="review-callout"><strong>Needs review.</strong> ${escapeHtml(r.notes||'Imported source has an inconsistency.')}</div>`:''}
-      <div class="notes-box"><label class="subtle">Notes / source notes</label><textarea id="recipeNotes">${escapeHtml(r.notes||'')}</textarea></div>
+      <div class="notes-box"><label class="subtle">Internal notes / source notes</label><textarea id="recipeNotes">${escapeHtml(r.notes||'')}</textarea></div>
     `;
+
     renderRecipeLines(r);
-    updateFoodCostPct(r);
-    $$('.size-tab',host).forEach(b=>b.onclick=()=>{activeRecipeSize=b.dataset.size; renderRecipeEditor();});
-    $('#addRecipeLineBtn').onclick=()=>{r.sizes[activeRecipeSize].push({ingredient:state.ingredients[0]?.name||'',qty:0,unit:state.ingredients[0]?.unit||'ml',optional:false,note:''}); saveState(); renderRecipeEditor();};
+
+    $$('.size-tab',host).forEach(b=>b.onclick=()=>{activeRecipeSize=b.dataset.size;renderRecipeEditor();});
+
+    $('#addRecipeLineBtn').onclick=()=>{
+      const defaultIng=state.ingredients.find(i=>!['12 oz with logo','16 oz with logo','22 oz with logo','Flat lids','Dome lids','Thin straws','Bobba Straws','Single Bags','Parchment Paper'].includes(i.name)) || state.ingredients[0];
+      r.sizes[activeRecipeSize].push({ingredient:defaultIng?.name||'',qty:0,unit:defaultIng?.unit||'ml',optional:false,note:''});
+      saveState();renderRecipeEditor();
+    };
+
+    $('#addPackagingLineBtn').onclick=()=>{
+      r.sizes[activeRecipeSize].push({ingredient:'Single Bags',qty:1,unit:'pc',optional:false,note:'Packaging'});
+      saveState();renderRecipeEditor();
+    };
+
+    $('#sellingPrice').onchange=()=>{
+      r.sellingPrices[activeRecipeSize]=$('#sellingPrice').value===''?null:Number($('#sellingPrice').value);
+      saveState();renderRecipeEditor();
+    };
+
     $('#saveRecipeBtn').onclick=()=>saveRecipeEditor(r);
-    $('#sellingPrice').oninput=()=>{r.sellingPrices[activeRecipeSize]=$('#sellingPrice').value===''?null:Number($('#sellingPrice').value); saveState(); updateFoodCostPct(r);};
-    $('#deleteRecipeBtn').onclick=()=>{if(confirm(`Delete ${r.name}?`)){state.recipes=state.recipes.filter(x=>x.id!==r.id); selectedRecipeId=state.recipes[0]?.id||null; saveState(); renderAll();}};
+    $('#deleteRecipeBtn').onclick=()=>{
+      if(confirm(`Delete ${r.name}?`)){
+        state.recipes=state.recipes.filter(x=>x.id!==r.id);
+        selectedRecipeId=state.recipes[0]?.id||null;
+        saveState();renderAll();
+      }
+    };
   }
+
   function renderRecipeLines(r){
-    const box=$('#recipeLineRows'); const lines=r.sizes?.[activeRecipeSize]||[];
-    box.innerHTML=lines.map((ln,idx)=>{
-      const lc=lineCost(ln);
-      return `<div class="line-row" data-line="${idx}">
-        <select class="line-ingredient">${state.ingredients.map(i=>`<option ${i.name===ln.ingredient?'selected':''}>${escapeHtml(i.name)}</option>`).join('')}${findIngredient(ln.ingredient)?'':`<option selected>${escapeHtml(ln.ingredient)}</option>`}</select>
-        <input class="line-qty" type="number" min="0" step="0.01" value="${ln.qty}">
-        <select class="line-unit">${recipeUnits.map(u=>`<option ${normUnit(u)===normUnit(ln.unit)?'selected':''}>${u}</option>`).join('')}</select>
-        <input class="line-optional" type="checkbox" ${ln.optional?'checked':''} title="Optional ingredient">
-        <div class="line-cost">${lc.cost==null?`<span class="cost-error">${escapeHtml(lc.error)}</span>`:money(lc.cost)}</div>
-        <button class="icon-btn line-delete" type="button">×</button>
-      </div>`;
-    }).join('');
-    $$('.line-row[data-line]',box).forEach(row=>{
-      const idx=Number(row.dataset.line); const ln=lines[idx];
-      $('.line-ingredient',row).onchange=e=>{ln.ingredient=e.target.value; const ing=findIngredient(ln.ingredient); if(ing && !ln.unit) ln.unit=ing.unit; saveState(); renderRecipeEditor();};
-      $('.line-qty',row).onchange=e=>{ln.qty=Number(e.target.value); saveState(); renderRecipeEditor();};
-      $('.line-unit',row).onchange=e=>{ln.unit=e.target.value; saveState(); renderRecipeEditor();};
-      $('.line-optional',row).onchange=e=>{ln.optional=e.target.checked; saveState();};
-      $('.line-delete',row).onclick=()=>{lines.splice(idx,1); saveState(); renderRecipeEditor();};
+    const lines=r.sizes?.[activeRecipeSize]||[];
+    const ingredients=lines.map((ln,idx)=>({ln,idx})).filter(x=>!isPackagingLine(x.ln));
+    const packaging=lines.map((ln,idx)=>({ln,idx})).filter(x=>isPackagingLine(x.ln));
+
+    $('#ingredientLineRows').innerHTML=ingredients.length
+      ? ingredients.map(x=>lineEditorHtml(x.ln,x.idx)).join('')
+      : '<div class="empty-mini">No ingredients yet.</div>';
+
+    $('#packagingLineRows').innerHTML=packaging.length
+      ? packaging.map(x=>lineEditorHtml(x.ln,x.idx)).join('')
+      : '<div class="empty-mini">No packaging yet.</div>';
+
+    $$('.line-row[data-line]',$('#recipeEditor')).forEach(row=>{
+      const idx=Number(row.dataset.line);
+      const ln=lines[idx];
+
+      $('.line-ingredient',row).onchange=e=>{
+        ln.ingredient=e.target.value;
+        const ing=findIngredient(ln.ingredient);
+        if(ing) ln.unit=ing.unit;
+        saveState();renderRecipeEditor();
+      };
+      $('.line-qty',row).onchange=e=>{ln.qty=Number(e.target.value);saveState();renderRecipeEditor();};
+      $('.line-unit',row).onchange=e=>{ln.unit=e.target.value;saveState();renderRecipeEditor();};
+      $('.line-optional',row).onchange=e=>{ln.optional=e.target.checked;saveState();};
+      $('.line-delete',row).onclick=()=>{lines.splice(idx,1);saveState();renderRecipeEditor();};
     });
   }
-  function updateFoodCostPct(r){
-    const el=$('#foodCostPct'); if(!el) return;
-    const sell=Number(r.sellingPrices?.[activeRecipeSize]); const sc=sizeCost(r,activeRecipeSize);
-    el.textContent=(sell>0&&!sc.unresolved)?`${(sc.total/sell*100).toFixed(1)}% food cost`:'';
-  }
+
   function saveRecipeEditor(r){
     r.name=$('#editRecipeName').value.trim()||'Untitled Recipe';
     r.category=$('#editRecipeCategory').value.trim();
     r.notes=$('#recipeNotes').value.trim();
     r.instructions ||= {'12':'','16':'','22':''};
-    r.instructions[activeRecipeSize]=$('#recipeInstructions')?.value.trim()||'';
+    r.instructions[activeRecipeSize]=$('#recipeInstructions').value.trim();
     const sp=$('#sellingPrice').value; r.sellingPrices[activeRecipeSize]=sp===''?null:Number(sp);
     saveState(); renderAll();
   }
