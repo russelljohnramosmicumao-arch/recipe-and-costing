@@ -1,4 +1,4 @@
-const CACHE='kbr-recipe-cloud-v2-frappe-sizes';
+const CACHE='kbr-recipe-cloud-v3-ordering-menu-blank-recipes';
 const FILES=['./','index.html','styles.css?v=row-editor-5','recipe-cloud.css','data.js','ingredients.js?v=row-editor-5','rows.js?v=row-editor-5','app.js?v=row-editor-5','recipe-model.js','sync-config.js','sync-core.js','sync.css','sync-login.html','recipe-cloud.js','recipe-update.js'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting();});

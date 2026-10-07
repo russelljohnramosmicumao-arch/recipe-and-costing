@@ -1,6 +1,6 @@
 const ICE_FILL={'12':200,'16':250,'22':330};
 const LIQUID_FILL={'12':180,'16':220,'22':300};
-function ingredientKey(d){return [d.category,d.name,type,size,isFrappe(d)&&size==='16'?(withIce?'ice':'plain'):''].join('|');}
+function ingredientKey(d){return [d.productId||d.category,d.productId?'':d.name,type,size,isFrappe(d)&&size==='16'?(withIce?'ice':'plain'):''].join('|');}
 const ROWS_KEY='kbr-recipe-rows-v2';let savedRows={},legacyIngredients={},rowEditor=null,rowError='';
 try{const x=JSON.parse(localStorage.getItem(ROWS_KEY)||'{}');if(x&&typeof x==='object'&&!Array.isArray(x))savedRows=x;}catch{}
 try{const x=JSON.parse(localStorage.getItem('kbr-recipe-ingredients-v1')||'{}');if(x&&typeof x==='object')legacyIngredients=x;}catch{}
@@ -67,7 +67,7 @@ function standardIngredients(d,v){
 }
 function rowStorageKey(d,kind){return ingredientKey(d)+'|'+kind;}
 function validRows(x){return Array.isArray(x)&&x.every(r=>r&&typeof r.name==='string'&&typeof r.unit==='string'&&(r.quantity===null||(typeof r.quantity==='number'&&Number.isFinite(r.quantity)&&r.quantity>=0)));}
-function getRows(d,kind,v,packaging){if(kind==='ingredients'&&isFrappe(d)&&size==='16'&&withIce){const base=inContext(d,'16',type,false,()=>getRows(d,kind,variant(d),packaging)).filter(r=>!/icecream/.test(normalizedName(r.name)));const ice=standardIngredients(d,v).find(r=>/icecream/.test(normalizedName(r.name)));return [...base,{name:ice?.name||'Ice cream (vanilla)',quantity:40,unit:'g'}];}const stored=savedRows[rowStorageKey(d,kind)];if(validRows(stored))return stored.map(x=>({...x}));return kind==='ingredients'?standardIngredients(d,v):packaging.map(x=>Array.isArray(x)?{name:x[0],quantity:parseNumber(x[1]),unit:x[1].includes('pc')?'pc':'as needed'}:{...x});}
+function getRows(d,kind,v,packaging){if(d.blankRecipe){const stored=savedRows[rowStorageKey(d,kind)];return validRows(stored)?stored.map(x=>({...x})):[];}if(kind==='ingredients'&&isFrappe(d)&&size==='16'&&withIce){const base=inContext(d,'16',type,false,()=>getRows(d,kind,variant(d),packaging)).filter(r=>!/icecream/.test(normalizedName(r.name)));const ice=standardIngredients(d,v).find(r=>/icecream/.test(normalizedName(r.name)));return [...base,{name:ice?.name||'Ice cream (vanilla)',quantity:40,unit:'g'}];}const stored=savedRows[rowStorageKey(d,kind)];if(validRows(stored))return stored.map(x=>({...x}));return kind==='ingredients'?standardIngredients(d,v):packaging.map(x=>Array.isArray(x)?{name:x[0],quantity:parseNumber(x[1]),unit:x[1].includes('pc')?'pc':'as needed'}:{...x});}
 function cancelIngredientEdit(){rowEditor=null;rowError='';}
 function rowList(d,kind,v,packaging){
  const rows=getRows(d,kind,v,packaging);const catalog=kind==='ingredients'?INGREDIENT_CATALOG.map(x=>x.name):['12 oz cup','16 oz cup','22 oz cup','Boba straw','Thin straw','Flat straw','Flat lid','Dome lid','Parchment paper','Single bag','Single plastic bag'];
