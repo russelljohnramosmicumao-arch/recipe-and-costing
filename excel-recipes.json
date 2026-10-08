@@ -8986,12 +8986,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Coffee Syrup",
         "quantity": 20.0,
         "unit": "ml",
@@ -9086,12 +9080,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Coffee Syrup",
         "quantity": 20.0,
         "unit": "ml",
@@ -9180,12 +9168,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Coffee Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -9259,12 +9241,6 @@
         "name": "Water",
         "quantity": 200.0,
         "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
         "kind": "ingredients"
       },
       {
@@ -9374,12 +9350,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Coffee Syrup",
         "quantity": 20.0,
         "unit": "ml",
@@ -9480,12 +9450,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Coffee Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -9574,12 +9538,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 20.0,
         "unit": "ml",
@@ -9680,12 +9638,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 20.0,
         "unit": "ml",
@@ -9780,12 +9732,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 30.0,
         "unit": "ml",
@@ -9868,12 +9814,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Choco Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -9974,12 +9914,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Choco Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -10074,12 +10008,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Choco Syrup",
         "quantity": 40.0,
         "unit": "ml",
@@ -10162,12 +10090,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Choco Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -10268,12 +10190,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Choco Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -10368,12 +10284,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Choco Syrup",
         "quantity": 40.0,
         "unit": "ml",
@@ -10456,12 +10366,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Strawberry Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -10562,12 +10466,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Strawberry Syrup",
         "quantity": 30.0,
         "unit": "ml",
@@ -10662,12 +10560,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Strawberry Syrup",
         "quantity": 40.0,
         "unit": "ml",
@@ -10750,12 +10642,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Green Apple Syrup",
         "quantity": 10.0,
         "unit": "ml",
@@ -10856,12 +10742,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Green Apple Syrup",
         "quantity": 10.0,
         "unit": "ml",
@@ -10953,12 +10833,6 @@
         "name": "Ice Cream -Cream line",
         "quantity": 60.0,
         "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
         "kind": "ingredients"
       },
       {
@@ -11044,12 +10918,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 20.0,
         "unit": "ml",
@@ -11144,12 +11012,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 20.0,
         "unit": "ml",
@@ -11235,12 +11097,6 @@
         "name": "Ice Cream -Cream line",
         "quantity": 60.0,
         "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
         "kind": "ingredients"
       },
       {
@@ -11320,12 +11176,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 20.0,
         "unit": "ml",
@@ -11414,12 +11264,6 @@
         "kind": "ingredients"
       },
       {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
         "name": "Condensed Milk",
         "quantity": 20.0,
         "unit": "ml",
@@ -11499,12 +11343,6 @@
         "name": "Ice Cream -Cream line",
         "quantity": 60.0,
         "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "White Choco Chips",
-        "quantity": 20.0,
-        "unit": "g",
         "kind": "ingredients"
       },
       {
@@ -11982,32 +11820,32 @@
         "kind": "packaging"
       },
       {
-        "name": "Ice",
-        "quantity": 250.0,
+        "name": "Cha Yen",
+        "quantity": 30,
         "unit": "g",
         "kind": "ingredients"
       },
       {
-        "name": "Water",
-        "quantity": 260.0,
-        "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "Choco Syrup",
-        "quantity": 20.0,
+        "name": "Condensed Milk",
+        "quantity": 30,
         "unit": "ml",
         "kind": "ingredients"
       },
       {
         "name": "Milk Essence",
-        "quantity": 30.0,
+        "quantity": 20,
         "unit": "g",
         "kind": "ingredients"
       },
       {
-        "name": "Butterfly pea tea",
-        "quantity": 30.0,
+        "name": "Water",
+        "quantity": 220,
+        "unit": "ml",
+        "kind": "ingredients"
+      },
+      {
+        "name": "Ice",
+        "quantity": 250,
         "unit": "g",
         "kind": "ingredients"
       }
@@ -12016,75 +11854,5 @@
     "sourceType": "regular",
     "matchName": "chayen",
     "sourceSize": "16oz"
-  },
-  {
-    "sourceName": "Cha Yen",
-    "size": "22 oz",
-    "components": [
-      {
-        "name": "22 oz Cup",
-        "quantity": 1.0,
-        "unit": "pcs",
-        "kind": "packaging"
-      },
-      {
-        "name": "Dome Lids",
-        "quantity": 1.0,
-        "unit": "pcs",
-        "kind": "packaging"
-      },
-      {
-        "name": "Parchment Paper",
-        "quantity": 1.0,
-        "unit": "pcs",
-        "kind": "packaging"
-      },
-      {
-        "name": "Single Bags",
-        "quantity": 1.0,
-        "unit": "pcs",
-        "kind": "packaging"
-      },
-      {
-        "name": "Bobba Straws",
-        "quantity": 1.0,
-        "unit": "pcs",
-        "kind": "packaging"
-      },
-      {
-        "name": "Ice",
-        "quantity": 330.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
-        "name": "Water",
-        "quantity": 370.0,
-        "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "Choco Syrup",
-        "quantity": 30.0,
-        "unit": "ml",
-        "kind": "ingredients"
-      },
-      {
-        "name": "Milk Essence",
-        "quantity": 40.0,
-        "unit": "g",
-        "kind": "ingredients"
-      },
-      {
-        "name": "Butterfly pea tea",
-        "quantity": 150.0,
-        "unit": "g",
-        "kind": "ingredients"
-      }
-    ],
-    "procedure": "",
-    "sourceType": "regular",
-    "matchName": "chayen",
-    "sourceSize": "22oz"
   }
 ]
