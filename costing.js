@@ -1,5 +1,5 @@
 'use strict';
-let costingPage='recipes';const costingOpen=new Set();const costingDraftKey='kbr_costing_draft_v1';let costingDraft=cloud.read(costingDraftKey,{})||{};
+let costingPage=document.body.dataset.workspace==='costing'?'costing':'recipes';const costingOpen=new Set();const costingDraftKey='kbr_costing_draft_v1';let costingDraft=cloud.read(costingDraftKey,{})||{};
 function purchaseFactor(item,unit){const native=item.unit,n=norm(item.name),size=Number(item.measurement?.size)||0;
 if(unit===native||['pc','pcs'].includes(native)&&['pc','pcs'].includes(unit))return 1;
 if(['g','ml'].includes(native)&&['g','ml'].includes(unit))return 1;
