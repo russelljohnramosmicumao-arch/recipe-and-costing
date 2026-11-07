@@ -14,11 +14,59 @@ html+=`<div class="head"><h2>${esc(current.name)}</h2><div><button data-back>Bac
 const costs=current.components.map(cost),sum=costs.reduce((a,b)=>a+(b||0),0),m=menu.find(m=>m.productId===current.productId),labels=current.type==='premium'?m?.premiumSizes:m?.sizes,prices=current.type==='premium'?m?.premium:m?.prices,selling=prices?.[labels?.indexOf(current.size)];html+=`<section><h3>Costing</h3><p>Drink cost: ${costs.some(c=>c==null)?'Purchase prices needed':'₱'+sum.toFixed(2)} · Menu price: ${selling==null?'—':'₱'+selling}${selling!=null&&!costs.some(c=>c==null)?' · Margin: '+((selling-sum)/selling*100).toFixed(1)+'%':''}</p><small>Additional carry bag is counted once per order; its cost is separate.</small></section>`;app.innerHTML=html;}
 function options(c,k){const choices=inventory.filter(i=>k==='packaging'?i.categoryId==='packaging':i.categoryId!=='packaging').sort((a,b)=>a.name.localeCompare(b.name));return `<option value="">Choose inventory item</option>${choices.map(i=>`<option value="${esc(i.id)}" ${i.id===c.itemId?'selected':''}>${esc(i.name)}</option>`).join('')}`;}
 function editRow(c,k){return `<div class="editing-row" data-kind="${k}"><select data-item>${options(c,k)}</select><input data-qty type="number" min="0.000001" step="any" placeholder="Quantity" value="${c.quantity??''}"><select data-unit>${(k==='packaging'?['pcs']:['g','ml','kg','L','pcs','packs','container']).map(u=>`<option ${u===c.unit?'selected':''}>${u}</option>`).join('')}</select><input data-factor type="number" min="0.000000001" step="any" placeholder="Stock units per unit" title="Stock units deducted per recipe unit" value="${c.stockFactor??''}"><button type="button" data-remove aria-label="Remove row">×</button></div>`;}
-function openEdit(){if(busy||cloud.read(pendingKey))throw Error('Sync the pending change first.');draft=copy(current);editing=true;app.innerHTML=`<h2>Edit ${esc(current.name)} · ${esc(current.size)}</h2><form id="recipeForm"><div class="panes">${['ingredients','packaging'].map(k=>{const rows=draft.components.filter(c=>c.kind===k);while(rows.length<4)rows.push({unit:k==='packaging'?'pcs':'g'});return `<section><h3>${k==='ingredients'?'Ingredients':'Packaging'}</h3><small>Item · quantity · unit · stock conversion</small><input data-search="${k}" placeholder="Search inventory choices"><div id="${k}Rows">${rows.map(c=>editRow(c,k)).join('')}</div><button type="button" data-add="${k}">+ Add row</button></section>`;}).join('')}</div><section><h3>Procedure</h3><textarea id="procedure">${esc(draft.procedure)}</textarea></section><button>Save everything</button> <button type="button" data-cancel>Cancel</button></form>`;}
+function recipePhotoURL(raw){
+ if(!raw)return '';
+ try{return new URL(String(raw),'https://russelljohnramosmicumao-arch.github.io/Kape-Barrio/').href;}catch{return '';}
+}
+function openEdit(){if(busy||cloud.read(pendingKey))throw Error('Sync the pending change first.');draft=copy(current);editing=true;
+const product=menu.find(item=>item.productId===current.productId);
+const photoURL=recipePhotoURL(product?.image);
+app.innerHTML=`<h2>Edit ${esc(current.name)} · ${esc(current.size)}</h2>
+<section class="recipe-photo-editor" style="border:1px solid #b6cfc2;background:#fff;padding:16px;border-radius:14px;margin:14px 0">
+<h3>Drink picture</h3><p>Update the product picture for every size. Online Ordering and the in-store Ordering App will use the new picture.</p>
+<div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+<img id="recipePhotoPreview" alt="Current product picture" src="${esc(photoURL)}" style="height:128px;width:128px;object-fit:contain;background:#f5f1ea;border-radius:12px" ${photoURL?'':'hidden'}>
+<div style="display:grid;gap:10px;flex:1;min-width:180px">
+<input id="recipePhotoFile" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Choose a replacement drink picture">
+<button type="button" data-save-recipe-photo>Upload & Save Picture</button>
+<small id="recipePhotoStatus" role="status">Picture applies to all sizes. Save it separately from recipe ingredients.</small>
+</div></div>
+</section>
+<form id="recipeForm"><div class="panes">${['ingredients','packaging'].map(k=>{const rows=draft.components.filter(c=>c.kind===k);while(rows.length<4)rows.push({unit:k==='packaging'?'pcs':'g'});return `<section><h3>${k==='ingredients'?'Ingredients':'Packaging'}</h3><small>Item · quantity · unit · stock conversion</small><input data-search="${k}" placeholder="Search inventory choices"><div id="${k}Rows">${rows.map(c=>editRow(c,k)).join('')}</div><button type="button" data-add="${k}">+ Add row</button></section>`;}).join('')}</div><section><h3>Procedure</h3><textarea id="procedure">${esc(draft.procedure)}</textarea></section><button>Save everything</button> <button type="button" data-cancel>Cancel</button></form>`;}
 function autoFactor(i,u){if(!i)return '';if(i.unit===u||['g','ml'].includes(i.unit)&&['g','ml'].includes(u)||['pc','pcs'].includes(i.unit)&&u==='pcs')return 1;if(u==='g'&&i.unit==='kg'||u==='ml'&&i.unit==='L')return .001;if(u==='kg'&&i.unit==='g'||u==='L'&&i.unit==='ml')return 1000;if(norm(i.name)==='instantcoffee'&&u==='g'&&i.unit==='packs')return 1/3;if(norm(i.name)==='3ltub'&&['g','ml'].includes(u))return 1/3000;if(u==='ml'&&i.unit==='container'&&i.containerVolumeMl>0)return 1/i.containerVolumeMl;if(u==='ml'&&i.unit==='container'&&i.measurement?.size>0)return 1/i.measurement.size;return '';}
 async function save(doc){if(role!=='owner'||busy)throw Error('Owner connection required.');if(cloud.read(pendingKey))throw Error('Sync your pending edit first.');const op={p_document:doc,p_expected_revision:state.revision,p_operation:cloud.uuid()};localStorage.setItem(pendingKey,JSON.stringify(op));const selection=current?{id:current.productId,type:current.type,size:current.size}:null;state.document=doc;if(selection)current=doc.variants.find(v=>v.productId===selection.id&&v.type===selection.type&&v.size===selection.size)||null;localStorage.setItem(cacheKey,JSON.stringify({state,inventory,menu,role}));render();status('Saved on this device; waiting to sync.');await flush();}
 async function flush(){const op=cloud.read(pendingKey);if(!op||busy)return;busy=true;try{const r=await cloud.rpc('kbr_save_recipes',op);if(r.conflict){status('Another device edited recipes. Download your backup before resolving this pending change.');return;}const selection=current?{id:current.productId,type:current.type,size:current.size}:null;state=r;if(selection)current=state.document.variants.find(v=>v.productId===selection.id&&v.type===selection.type&&v.size===selection.size)||null;localStorage.removeItem(pendingKey);localStorage.setItem(cacheKey,JSON.stringify({state,inventory,menu,role}));online=true;status('Recipes synced.');render();}catch(e){online=false;status(e.message+' Your edit is saved here; press ☁ to retry.');}finally{busy=false;}}
 async function refresh(){if(editing||busy)return;if(cloud.read(pendingKey)){await flush();return;}busy=true;try{role=await cloud.role();const [r,i,m]=await Promise.all([cloud.request('/rest/v1/kbr_recipe_state?id=eq.1&select=*'),cloud.request('/rest/v1/kbr_inventory_state?id=eq.1&select=items'),cloud.request('/rest/v1/kbr_menu?id=eq.1&select=items')]);state=r[0]||null;inventory=i[0]?.items||[];menu=m[0]?.items||[];if(state?.document.catalogReset!=='excel-2026-10-08-v1'){state=null;status('Run the Excel rebuild SQL first.');}else{online=true;localStorage.setItem(cacheKey,JSON.stringify({state,inventory,menu,role}));if(current)current=state.document.variants.find(v=>v.productId===current.productId&&v.type===current.type&&v.size===current.size)||null;status('Cloud connected.');}render();}catch(e){online=false;const old=cloud.read(cacheKey);if(old){({state,inventory,menu,role}=old);status('Offline recipes loaded. '+e.message);render();}else status(e.message);}finally{busy=false;}}
+app.addEventListener('change',e=>{
+ if(e.target.id!=='recipePhotoFile')return;
+ const file=e.target.files?.[0];
+ const preview=document.getElementById('recipePhotoPreview');
+ if(file&&preview){
+  const url=URL.createObjectURL(file);
+  preview.src=url;preview.hidden=false;
+  preview.onload=()=>URL.revokeObjectURL(url);
+ }
+});
+app.addEventListener('click',async e=>{
+ const button=e.target.closest('[data-save-recipe-photo]');
+ if(!button)return;
+ const picker=document.getElementById('recipePhotoFile');
+ const feedback=document.getElementById('recipePhotoStatus');
+ const picture=picker?.files?.[0];
+ if(!picture){if(feedback)feedback.textContent='Choose a new picture first.';return;}
+ if(!window.KBRRecipePhoto){if(feedback)feedback.textContent='Photo uploader is still loading. Reopen Recipe & Costing and try again.';return;}
+ button.disabled=true;
+ if(feedback)feedback.textContent='Uploading optimized picture and updating shared menu…';
+ try{
+  const url=await window.KBRRecipePhoto.savePicture(current.productId,picture);
+  const product=menu.find(item=>item.productId===current.productId);
+  if(product)product.image=url;
+  localStorage.setItem(cacheKey,JSON.stringify({state,inventory,menu,role}));
+  picker.value='';
+  if(feedback)feedback.textContent='Picture saved! Both ordering apps will use it after their next menu refresh. GitHub backup sync runs separately.';
+ }catch(error){if(feedback)feedback.textContent=error?.message||'Unable to save picture.';}
+ finally{button.disabled=false;}
+});
 app.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;try{if(b.hasAttribute('data-category')){category=b.dataset.category;current=null;render();}if(b.dataset.product){current=state.document.variants.find(v=>v.productId===b.dataset.product);render();}if(b.hasAttribute('data-variant')){current=state.document.variants[Number(b.dataset.variant)];render();}if(b.hasAttribute('data-back')){current=null;render();}if(b.hasAttribute('data-edit'))openEdit();if(b.hasAttribute('data-links'))openLinks();if(b.hasAttribute('data-cancel')){editing=false;draft=null;render();}if(b.dataset.add)document.getElementById(b.dataset.add+'Rows').insertAdjacentHTML('beforeend',editRow({unit:b.dataset.add==='packaging'?'pcs':'g'},b.dataset.add));if(b.hasAttribute('data-remove'))b.closest('.editing-row').remove();}catch(e){status(e.message);}});
 app.addEventListener('input',e=>{if(!e.target.dataset.search)return;const query=e.target.value.toLowerCase();document.querySelectorAll('#'+e.target.dataset.search+'Rows option').forEach(o=>{o.hidden=!!o.value&&!o.textContent.toLowerCase().includes(query);});});
 app.addEventListener('change',e=>{const r=e.target.closest('.editing-row');if(!r)return;const i=inventory.find(i=>i.id===r.querySelector('[data-item]').value);if(e.target.hasAttribute('data-item')&&i){const u=r.querySelector('[data-unit]');if([...u.options].some(o=>o.value===i.unit))u.value=i.unit;}r.querySelector('[data-factor]').value=autoFactor(i,r.querySelector('[data-unit]').value);});
