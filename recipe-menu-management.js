@@ -13,7 +13,7 @@ outer.innerHTML=`
  <h3 id="catalogTitle">Edit menu details</h3>
  <div class="catalog-fields"><label>Product name<input id="catalogName" maxlength="100" required></label><label>Category<select id="catalogCategory" required></select></label><label><input id="catalogFood" type="checkbox"> Food / non-drink item</label></div>
  <div class="catalog-photo"><img id="catalogImage" alt="Menu picture preview" hidden><label>Upload or replace picture<input id="catalogUpload" type="file" accept="image/jpeg,image/png,image/webp"></label></div>
- <h4>Rename sizes or selling units</h4><p>Rename the labels without changing their prices. For frappes you can use names like “16 oz without ice cream” or “22 oz with ice cream”. New sizes start unavailable at ₱1 until priced and enabled in Manager.</p>
+ <h4>Rename sizes or selling units</h4><p>Rename the labels without changing their prices. For frappes you can use names like “16 oz without ice cream” or “22 oz with ice cream”. Existing sizes can be renamed but not removed here; hide them in Price Management. New sizes start unavailable at ₱1 until priced and enabled in Manager.</p>
  <div id="catalogSizes"></div><button id="catalogAddSize" type="button">＋ Add Size / Portion</button>
  <div class="catalog-actions"><button id="catalogSave" type="submit">Save Menu Details</button><button id="catalogCancel" type="button">Cancel</button></div>
 </form>
@@ -80,11 +80,11 @@ function draw(){
   el.append(img,inf,b);container.append(el);
  }
 }
-function addRow(type='standard',size=''){
+function addRow(type='standard',size='',existing=false){
  const row=document.createElement('div');row.className='catalog-row';
- const kind=document.createElement('select');kind.append(new Option('Standard','standard'),new Option('Premium','premium'));kind.value=type;
+ const kind=document.createElement('select');kind.append(new Option('Standard','standard'),new Option('Premium','premium'));kind.value=type;kind.disabled=existing;
  const input=document.createElement('input');input.value=size;input.required=true;input.maxLength=50;input.placeholder='Size or portion';
- const del=document.createElement('button');del.type='button';del.textContent='×';del.onclick=()=>{if($('catalogSizes').children.length>1)row.remove();else note('Keep at least one size.');};
+ const del=document.createElement('button');del.type='button';del.textContent=existing?'🔒':'×';del.title=existing?'Existing sizes may be renamed here; to hide them, use Manager Price Management.':'Remove this new size';del.disabled=existing;del.onclick=()=>{if($('catalogSizes').children.length>1)row.remove();else note('Keep at least one size.');};
  row.append(kind,input,del);$('catalogSizes').append(row);
 }
 function open(item=null){
@@ -96,8 +96,8 @@ function open(item=null){
  $('catalogFood').checked=!!item?.food;
  $('catalogSizes').replaceChildren();
  if(item){
-  (item.sizes||[]).forEach(v=>addRow('standard',v));
-  (item.premiumSizes||[]).forEach(v=>addRow('premium',v));
+  (item.sizes||[]).forEach(v=>addRow('standard',v,true));
+  (item.premiumSizes||[]).forEach(v=>addRow('premium',v,true));
  }else{addRow('standard','16 oz');}
  const src=imageUrl(item?.image);$('catalogImage').hidden=!src;
  if(src)$('catalogImage').src=src;else $('catalogImage').removeAttribute('src');
