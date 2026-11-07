@@ -148,6 +148,24 @@ async function saveMenu(ev){
  }catch(e){note(e.message||'Could not save product details.');}
  finally{working=false;$('catalogSave').disabled=false;}
 }
+window.KBRRecipePhoto=Object.freeze({
+ async savePicture(productId,file){
+  if(!productId||!file)throw Error('Choose a product and a picture first.');
+  if(role!=='owner')throw Error('Owner login is required.');
+  if(!navigator.onLine)throw Error('Connect to the internet before uploading a picture.');
+  if(cloud.read(pendingKey))throw Error('Sync pending recipe edits first.');
+  const snapshot=await cloud.rpc('kbr_manager_menu_snapshot',{});
+  const item=(snapshot?.items||[]).find(i=>i.productId===productId);
+  if(!item)throw Error('Product was not found in the shared menu.');
+  const url=await uploadImage(file);
+  const result=await cloud.rpc('kbr_recipe_update_menu_photo',{
+   p_product_id:productId,p_image:url,p_expected_revision:Number(snapshot.revision)
+  });
+  if(result?.conflict)throw Error('The menu changed while uploading. Please try saving this photo again.');
+  if(!result?.ok)throw Error('Photo uploaded, but menu update was not confirmed.');
+  return result.image;
+ }
+});
 trigger.addEventListener('click',async()=>{
  if(role!=='owner'){status('Sign in as shop owner to edit menu details.');return;}
  if(!online){status('Connect to the internet before changing shared menu details.');return;}
