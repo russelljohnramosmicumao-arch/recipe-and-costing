@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const HOME='https://russelljohnramosmicumao-arch.github.io/KapeBarrioHomeScreen/';
+const HOME='https://kapebarriohomescreen.pages.dev/';
 const svg=(paths)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths+'</svg>';
 const header=document.querySelector('header'),tools=document.createElement('div');tools.className='kbr-page-tools';
 const home=document.createElement('a');home.href=HOME;home.target='_top';home.className='kbr-tool';home.title='Go to home screen';home.setAttribute('aria-label','Go to home screen');home.innerHTML=svg('<path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/>');tools.append(home);
