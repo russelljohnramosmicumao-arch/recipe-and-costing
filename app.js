@@ -16,7 +16,7 @@ function options(c,k){const choices=inventory.filter(i=>k==='packaging'?i.catego
 function editRow(c,k){return `<div class="editing-row" data-kind="${k}"><select data-item>${options(c,k)}</select><input data-qty type="number" min="0.000001" step="any" placeholder="Quantity" value="${c.quantity??''}"><select data-unit>${(k==='packaging'?['pcs']:['g','ml','kg','L','pcs','packs','container']).map(u=>`<option ${u===c.unit?'selected':''}>${u}</option>`).join('')}</select><input data-factor type="number" min="0.000000001" step="any" placeholder="Stock units per unit" title="Stock units deducted per recipe unit" value="${c.stockFactor??''}"><button type="button" data-remove aria-label="Remove row">×</button></div>`;}
 function recipePhotoURL(raw){
  if(!raw)return '';
- try{return new URL(String(raw),'https://russelljohnramosmicumao-arch.github.io/Kape-Barrio/').href;}catch{return '';}
+ try{return new URL(String(raw).replace(/^https:\/\/russelljohnramosmicumao-arch\.github\.io\/Kape-Barrio\/images\//i,'https://kape-barrio.pages.dev/images/'),'https://kape-barrio.pages.dev/').href;}catch{return '';}
 }
 function openEdit(){if(busy||cloud.read(pendingKey))throw Error('Sync the pending change first.');draft=copy(current);editing=true;
 const product=menu.find(item=>item.productId===current.productId);
