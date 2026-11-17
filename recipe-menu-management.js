@@ -45,7 +45,7 @@ style.textContent=`
 `;
 document.head.append(style);
 const $=id=>outer.querySelector('#'+id);
-const imageUrl=raw=>!raw?'':/^https?:\/\//.test(raw)?raw:'https://russelljohnramosmicumao-arch.github.io/Kape-Barrio/'+raw.replace(/^\.\//,'');
+const imageUrl=value=>{const raw=String(value||'').replace(/^https:\/\/russelljohnramosmicumao-arch\.github\.io\/Kape-Barrio\/images\//i,'https://kape-barrio.pages.dev/images/');return !raw?'':/^https?:\/\//.test(raw)?raw:'https://kape-barrio.pages.dev/'+raw.replace(/^\.\//,'');};
 let products=[],menuRevision=null,recipeRevision=null,selected=null,file=null,working=false;
 const note=(m)=>{$('catalogStatus').textContent=m;};
 function ensureCategory(){
