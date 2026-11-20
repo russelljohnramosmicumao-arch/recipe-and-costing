@@ -3,7 +3,7 @@ const cloud=KBRCloud,app=document.getElementById('app'),note=document.getElement
 let state=null,inventory=[],menu=[],role='',current=null,category='',editing=false,busy=false,draft=null,online=false;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const copy=x=>structuredClone(x),norm=s=>String(s??'').toLowerCase().replace(/[^a-z0-9]/g,'');
-function status(t){note.textContent=t;document.getElementById('recipeSync').classList.toggle('connected',online&&!cloud.read(pendingKey));}
+function status(t){note.textContent=t;if(/please sign in|refresh token|session expired|invalid jwt/i.test(t)||!cloud.session()){const a=document.createElement('a');a.href='sync-login.html?next=index.html';a.textContent=' Sign in again';a.style.fontWeight='bold';note.append(a);}document.getElementById('recipeSync').classList.toggle('connected',online&&!cloud.read(pendingKey));}
 function groups(){const all=state?.document.variants||[];return [...new Map(all.map(v=>[v.productId,{id:v.productId,name:v.name,category:v.category}])).values()];}
 function priceKey(c){return c.itemId+'|'+c.unit;}
 function cost(c){const p=state.document.prices[priceKey(c)];return p&&p.quantity>0?c.quantity*p.price/p.quantity:null;}
