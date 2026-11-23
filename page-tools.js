@@ -1,5 +1,18 @@
 (()=>{'use strict';
-const HOME='https://russelljohnramosmicumao-arch.github.io/KapeBarrioHomeScreen/';
+const GITHUB_HOME='https://russelljohnramosmicumao-arch.github.io/KapeBarrioHomeScreen/';
+function safeCloudflareHome(value){try{const u=new URL(value);return u.protocol==='https:'&&u.hostname.endsWith('.pages.dev')&&!u.username&&!u.password?u.origin+'/':null;}catch{return null}}
+function homeUrl(){
+ if(location.hostname.endsWith('github.io'))return GITHUB_HOME;
+ const param=safeCloudflareHome(new URL(location.href).searchParams.get('kbrHome'));
+ if(param){try{sessionStorage.setItem('kbr_cloudflare_home_url',param);}catch{}return param;}
+ let saved=null;try{saved=safeCloudflareHome(sessionStorage.getItem('kbr_cloudflare_home_url'));}catch{}
+ if(saved)return saved;
+ const ref=safeCloudflareHome(document.referrer);
+ if(ref&&ref!==location.origin+'/'){try{sessionStorage.setItem('kbr_cloudflare_home_url',ref);}catch{}return ref;}
+ // Same-origin subpages of the Cloudflare home project return to their own home.
+ return location.origin+'/';
+}
+const HOME=homeUrl();
 const svg=(paths)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths+'</svg>';
 const header=document.querySelector('header'),tools=document.createElement('div');tools.className='kbr-page-tools';
 const home=document.createElement('a');home.href=HOME;home.target='_top';home.className='kbr-tool';home.title='Go to home screen';home.setAttribute('aria-label','Go to home screen');home.innerHTML=svg('<path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/>');tools.append(home);
