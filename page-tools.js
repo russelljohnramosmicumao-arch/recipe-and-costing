@@ -1,7 +1,7 @@
 (()=>{'use strict';
 const GITHUB_HOME='https://russelljohnramosmicumao-arch.github.io/KapeBarrioHomeScreen/';
 const CLOUDFLARE_HOME='https://kapebarriohomescreen.pages.dev/';
-function safeCloudflareHome(value){try{const u=new URL(value);return u.protocol==='https:'&&u.hostname.endsWith('.pages.dev')&&!u.username&&!u.password?u.origin+'/':null;}catch{return null}}
+function safeCloudflareHome(value){try{const u=new URL(value);return u.protocol==='https:'&&u.hostname==='kapebarriohomescreen.pages.dev'&&!u.username&&!u.password?u.origin+'/':null;}catch{return null}}
 function homeUrl(){
  if(location.hostname.endsWith('github.io'))return GITHUB_HOME;
  const param=safeCloudflareHome(new URL(location.href).searchParams.get('kbrHome'));
