@@ -1,5 +1,6 @@
 (()=>{'use strict';
 const GITHUB_HOME='https://russelljohnramosmicumao-arch.github.io/KapeBarrioHomeScreen/';
+const CLOUDFLARE_HOME='https://kapebarriohomescreen.pages.dev/';
 function safeCloudflareHome(value){try{const u=new URL(value);return u.protocol==='https:'&&u.hostname.endsWith('.pages.dev')&&!u.username&&!u.password?u.origin+'/':null;}catch{return null}}
 function homeUrl(){
  if(location.hostname.endsWith('github.io'))return GITHUB_HOME;
@@ -10,7 +11,7 @@ function homeUrl(){
  const ref=safeCloudflareHome(document.referrer);
  if(ref&&ref!==location.origin+'/'){try{sessionStorage.setItem('kbr_cloudflare_home_url',ref);}catch{}return ref;}
  // Same-origin subpages of the Cloudflare home project return to their own home.
- return location.origin+'/';
+ return CLOUDFLARE_HOME;
 }
 const HOME=homeUrl();
 const svg=(paths)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths+'</svg>';
